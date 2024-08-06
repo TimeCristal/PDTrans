@@ -12,7 +12,8 @@ from tqdm import tqdm
 
 import utils
 #import model.net as net
-import PDTransformer as transformer
+# import PDTransformer as transformer
+import pdtransformer as transformer 
 from dataloader import *
 
 import matplotlib

@@ -15,7 +15,8 @@ from itertools import chain
 import torch.nn.functional as functional
 import utils
 from utils import EarlyStopping
-import PDTransformer as transformer
+# import PDTransformer as transformer
+import pdtransformer as transformer
 from evaluate import *
 from dataloader import *
 
