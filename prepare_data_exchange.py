@@ -54,6 +54,20 @@ def preprocess_data(data_path, dataset_name):
         np.save(os.path.join(os.path.dirname(data_path), 'valid_data_exchange.npy'), valid_data)
         np.save(os.path.join(os.path.dirname(data_path), 'test_data_exchange.npy'), test_data)
 
+        # If labels are separate, ensure they are saved as well
+        # Assuming the last column is the label
+        train_labels = train_data[:, -1]
+        valid_labels = valid_data[:, -1]
+        test_labels = test_data[:, -1]
+
+        train_data = train_data[:, :-1]
+        valid_data = valid_data[:, :-1]
+        test_data = test_data[:, :-1]
+
+        np.save(os.path.join(os.path.dirname(data_path), 'train_label_exchange.npy'), train_labels)
+        np.save(os.path.join(os.path.dirname(data_path), 'valid_label_exchange.npy'), valid_labels)
+        np.save(os.path.join(os.path.dirname(data_path), 'test_label_exchange.npy'), test_labels)
+
 if __name__ == '__main__':
     args = parse_args_()
     data_path = os.path.join(args.data_folder, 'LD2011_2014.txt' if args.dataset == 'elect' else 'exchange_rate.txt')
