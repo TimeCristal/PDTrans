@@ -144,10 +144,10 @@ if __name__ == '__main__':
     # valid_ratio = 0.05
     # test_ratio = 0.05
 
-    save_path = os.path.join('PDtrans/data/', save_name)
+    save_path = os.path.join('PDTrans/data/', save_name)
     data_path = os.path.join(save_path, 'LD2011_2014.txt')
     data_frame = pd.read_csv(data_path , sep=";", header=0,index_col=0, parse_dates=True, decimal=',')
-    data_frame = data_frame.resample('1H',label = 'left',closed = 'left').sum()  
+    data_frame = data_frame.resample('1h',label = 'left',closed = 'left').sum()  
     data_frame.fillna(0, inplace=True)  
 
     # data_frame = data_frame.set_index(pd.to_datetime(data_frame['LocalTime']))
