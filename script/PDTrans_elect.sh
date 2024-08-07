@@ -1,7 +1,11 @@
-# python prepdata.py
-python PDTrans/prepdata.py --data_folder PDTrans/data/elect --dataset elect
+
+python prepdata.py
 python evaluate.py --dataset='elect' --model-name='output_elect' --restore-file='best'
 
-python PDTrans/prepare_data_exchange.py --data_folder PDTrans/data/exchange --dataset exchange
+#this is ok to be run OUTSIDE top dir
+python PDTrans/prepdata.py --data_folder PDTrans/data/elect --dataset elect
 
-python PDTrans/train.py --model-name PDTrans/output_exchange --data-folder PDTrans/data --dataset exchange --lr 0.0001
+python PDTrans/train.py --model-name PDTrans/output_elect --data-folder PDTrans/data --dataset elect --lr 0.0001
+
+#this is ok to be run INSIDE top dir
+python evaluate.py --dataset elect --model-name output_elect --restore-file='best'
